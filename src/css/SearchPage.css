@@ -5,17 +5,17 @@
   width: 100%;
 }
 
-.search-breadhead .first{
+.search-breadhead .first {
   font-size: 25px;
   font-family: Microsoft Yahei;
   font-weight: 700;
-  white-space:nowrap;
-  text-overflow:ellipsis;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   text-decoration: none;
   color: #363535;
 }
 
-.search-breadhead  .second{
+.search-breadhead .second {
   color: #666;
   padding: 0 30px;
   font-size: 15px;
@@ -32,6 +32,11 @@
   font-weight: 700;
 }
 
+.search-table-container {
+  width: 95%;
+  padding-left:5%;
+  padding-top: 25px;
+}
 .search-container {
   width: 100%;
   margin-top: 30px;

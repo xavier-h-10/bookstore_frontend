@@ -11,7 +11,7 @@ const {Meta} = Card;
 
 class SearchResult extends React.Component {
   constructor(props) {
-    console.log("name="+props.name);
+    console.log("name=" + props.name);
     super(props);
     this.state = {
       books: null,
@@ -27,16 +27,20 @@ class SearchResult extends React.Component {
     });
   }
 
-  handleNumber=()=>{
-    if(!this.state.books) return null;
-    console.log("set number:",this.state.books.length);
+  handleNumber = () => {
+    if (!this.state.books) {
+      return null;
+    }
+    console.log("set number:", this.state.books.length);
     this.setState({
-      number:this.state.books.length,
+      number: this.state.books.length,
     });
   }
   renderBook = () => {
     let content = [];
-    if(!this.state.books) return null;
+    if (!this.state.books) {
+      return null;
+    }
     console.log("renderBook length:", this.state.books.length);
     for (let i = 0; i < (this.state.books.length); i++) {
       content.push(
@@ -76,7 +80,7 @@ class SearchResult extends React.Component {
             <strong>"{this.props.name}"</strong>
             找到以下相关商品
           </div>
-          <div className="book1-wrapper" style={{paddingTop:30}}>
+          <div className="book1-wrapper" style={{paddingTop: 30}}>
             <Row gutter={16}>
               <this.renderBook/>
             </Row>

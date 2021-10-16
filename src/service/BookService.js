@@ -38,7 +38,7 @@ export function getBooks(callback) {
 }
 
 //全文搜索 20211015
-export function getBooksByKeyWord(callback) {
-  const url = `http://localhost:8080/getBooksByKeyWord`;
+export function getBooksByKeyWord(keyword, callback) {
+  const url = `http://localhost:8080/getBooksByKeyword?keyword=${keyword}`;
   postRequest(url, {}, callback);
 }

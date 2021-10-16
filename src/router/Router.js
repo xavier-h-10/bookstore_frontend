@@ -47,8 +47,10 @@ class BasicRoute extends React.Component {
             <Route exact path="/user_order" component={UserOrderView}/>
             <Route exact path="/user" component={UserView}/>
             <ChatRoute exact path="/chat" component={ChatView}/>
-            <Route exact path="/search_by_keyword" component={SearchByKeywordView}/>
-            <Route exact path="/search_by_keyword_result" component={SearchByKeywordResultView}/>
+            <Route exact path="/search_by_keyword"
+                   component={SearchByKeywordView}/>
+            <Route exact path="/search_by_keyword_result"
+                   component={SearchByKeywordResultView}/>
             <Redirect from={'/*'} to={{pathname: "/home"}}/>
           </Switch>
         </Router>

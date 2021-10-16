@@ -11,12 +11,12 @@ const {Header, Content, Footer, Sider} = Layout;
 class SearchView extends React.Component {
   constructor(props) {
     super(props);
-    let search=props.location.search;
-    let params=new URLSearchParams(search);
-    this.state={
+    let search = props.location.search;
+    let params = new URLSearchParams(search);
+    this.state = {
       name: params.get('name'),
     }
-    console.log("get name:",this.state.name);
+    console.log("get name:", this.state.name);
   }
 
   render() {
@@ -29,7 +29,7 @@ class SearchView extends React.Component {
             <div className="detail-container">
               <Layout className="bookview-layout">
                 <SideBar/>
-                  <SearchResult name={this.state.name}/>
+                <SearchResult name={this.state.name}/>
               </Layout>
             </div>
           </div>
