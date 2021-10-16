@@ -20,6 +20,21 @@
   max-width: 500px;
 }
 
+.searchbar-advanced-wrapper {
+  align-content: flex-end;
+  width: 100%;
+  text-align: right;
+}
+
+.searchbar-advanced {
+  color: #969696;
+  margin-right: 2px;
+  _display: inline;
+  height: 20px;
+  overflow: hidden;
+  text-align: right;
+}
+
 .avatar-container {
   width: 200px;
 }
@@ -47,7 +62,7 @@
 
 .sider-container {
   /*height:100% !important;*/
-  min-height:750px !important;
+  min-height: 750px !important;
   max-width: 200px !important;
   width: 200px !important;
   flex: 0 0 200px !important;
@@ -87,6 +102,31 @@
   /*background-color: #fafafa;*/
 }
 
+.search-keyword-layout {
+  width: 100%;
+}
+
+.search-keyword-title {
+  font-family: sans-serif;
+  line-height: 2;
+  margin-top: 30px;
+  margin-left: 50px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.search-keyword-subtitle {
+  font-family: sans-serif;
+  line-height: 1.15;
+  margin-left: 50px;
+}
+
+.search-keyword-button-container {
+  width: 50%;
+  min-height: 100px;
+  padding-top: 30px;
+}
+
 .barimg-container {
   width: 1060px;
   padding-left: 68px;
@@ -112,13 +152,13 @@
   max-height: 100%;
 }
 
-.vol-container{
+.vol-container {
   text-align: center;
   display: inline-block;
   color: #9a9999;
   font-size: 15px;
 }
 
-.vol-number{
+.vol-number {
   display: inline-block;
 }

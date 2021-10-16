@@ -1,7 +1,7 @@
 import React from 'react';
 import {Layout, Col, Card, Row} from 'antd';
 import '../../css/AdminPage.css';
-import '../../css/SearchPage.css'
+import '../../css/SearchPage.css';
 import {getBookByName} from "../../service/BookService";
 import MyFooter from "../footer";
 

@@ -56,7 +56,7 @@ const ChatView = (props) => {
   const [text, setText] = useState("");
   const [username, setUsername] = useState("");
   const [socket, setSocket] = useState(null);
-  const [test, setTest] =useState(null);
+  const [test, setTest] = useState(null);
 
   useEffect(() => {
     // this.scrollToTop = this.scrollToTop.bind(this);
@@ -105,8 +105,8 @@ const ChatView = (props) => {
     return res;
   }
 
-  const renderChatContent=()=>{
-    console.log("render chat content! length=",chatContent.length);
+  const renderChatContent = () => {
+    console.log("render chat content! length=", chatContent.length);
     return chatContent;
   }
 
@@ -116,8 +116,8 @@ const ChatView = (props) => {
     console.log(msg);
     if (msg.type == 1) {  //处理info message
       console.log("set new chat content!");
-      setChatContent((data)=>{
-        let tmp=data;
+      setChatContent((data) => {
+        let tmp = data;
         tmp.push(
             <ChatInfo info={msg.message}/>
         );
@@ -132,13 +132,13 @@ const ChatView = (props) => {
       } else {
         setOnlineNum(tmp.length);
       }
-    }
-    else if (msg.type == 3) { //处理chat message
+    } else if (msg.type == 3) { //处理chat message
       console.log("set new chat content!");
-      setChatContent((data)=>{
-        let tmp=data;
+      setChatContent((data) => {
+        let tmp = data;
         tmp.push(
-            <Chat time={msg.time} name={msg.name} others={!msg.isMine} content={msg.message}/>
+            <Chat time={msg.time} name={msg.name} others={!msg.isMine}
+                  content={msg.message}/>
         );
         return tmp;
       })

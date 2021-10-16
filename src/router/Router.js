@@ -17,6 +17,8 @@ import PrivateRoute from "./PrivateRoute";
 import LoginRoute from "./LoginRoute";
 import ChatView from "../view/ChatView";
 import ChatRoute from "./ChatRoute";
+import SearchByKeywordView from "../view/SearchByKeywordView";
+import SearchByKeywordResultView from "../view/SearchByKeywordResultView";
 
 class BasicRoute extends React.Component {
   constructor(props) {
@@ -45,6 +47,8 @@ class BasicRoute extends React.Component {
             <Route exact path="/user_order" component={UserOrderView}/>
             <Route exact path="/user" component={UserView}/>
             <ChatRoute exact path="/chat" component={ChatView}/>
+            <Route exact path="/search_by_keyword" component={SearchByKeywordView}/>
+            <Route exact path="/search_by_keyword_result" component={SearchByKeywordResultView}/>
             <Redirect from={'/*'} to={{pathname: "/home"}}/>
           </Switch>
         </Router>

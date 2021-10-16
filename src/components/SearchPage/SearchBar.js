@@ -1,13 +1,13 @@
 import React from 'react';
-import {Input, Space} from 'antd';
+import {Input, Space, Radio} from 'antd';
 import "../../css/HomePage.css"
 
 const {Search} = Input;
 
 const onSearch = value => {
-  console.log("search "+value);
-  if(value) {
-    window.location.href="../search?name="+value;
+  console.log("search " + value);
+  if (value) {
+    window.location.href = "../search?name=" + value;
   }
 }
 
@@ -23,6 +23,11 @@ class SearchBar_HomePage extends React.Component {
                 size="large"
                 onSearch={onSearch}
             />
+            <div className="searchbar-advanced-wrapper">
+              <a className="searchbar-advanced" href="../search_by_keyword">
+                高级搜索
+              </a>
+            </div>
           </Space>
         </div>
     );
