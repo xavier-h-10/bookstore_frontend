@@ -16,6 +16,7 @@ import {
 import ChatList from "../components/ChatPage/ChatList";
 import ChatInfo from "../components/ChatPage/ChatInfo";
 import {getUser} from "../service/UserService";
+import {prefix_2} from '../config.js';
 
 const {TextArea} = Input;
 
@@ -84,7 +85,7 @@ const ChatView = (props) => {
   useEffect(() => {
     getUser(handleUser);
     console.log("new socket!");
-    let wsocket = new WebSocket("ws://localhost:8080/webSocket/chat");
+    let wsocket = new WebSocket("ws://" + prefix_2 + "/webSocket/chat");
     wsocket.onmessage = onMessage;
     setSocket(wsocket);
   }, [])

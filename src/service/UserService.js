@@ -3,7 +3,7 @@ import {message} from "antd";
 import {history} from "../utils/history";
 import request from "request";
 import {postRequest_v2} from "../utils/ajax";
-
+import {prefix} from '../config.js';
 
 export function login(data) {
   const callback = data => {
@@ -16,17 +16,17 @@ export function login(data) {
       message.error(data.message);
     }
   };
-  const url = `http://localhost:8080/login`;
+  const url = prefix + `login`;
   postRequest(url, data, callback);
 }
 
 export function checkSession(callback) {
-  const url = `http://localhost:8080/checkSession`;
+  const url = prefix + `checkSession`;
   postRequest_v2(url, {}, callback);
 }
 
 export function logout() {
-  const url = `http://localhost:8080/logout`;
+  const url = prefix + `logout`;
   const callback = data => {
     if (data.status > 0) {
       localStorage.removeItem('user');
@@ -41,22 +41,24 @@ export function logout() {
 }
 
 export function getUser(callback) {
-  const url = `http://localhost:8080/getUser`;
+  const url = prefix + `getUser`;
   postRequest(url, {}, callback);
 }
 
 export function getAllUsers(callback) {
-  const url=`http://localhost:8080/getAllUsers`;
-  postRequest(url,{},callback);
-}
-export function getUserById(userId, callback) {
-  const url = `http://localhost:8080/getUserById?userId=${Number(userId)}`;
+  const url = prefix + `getAllUsers`;
   postRequest(url, {}, callback);
 }
 
-export function updateUserStatus(userId,enabled,callback) {
-  const url=`http://localhost:8080/updateUserStatus?userId=${Number(userId)}&enabled=${Boolean(enabled)}`;
-  postRequest(url,{},callback);
+export function getUserById(userId, callback) {
+  const url = prefix + `getUserById?userId=${Number(userId)}`;
+  postRequest(url, {}, callback);
+}
+
+export function updateUserStatus(userId, enabled, callback) {
+  const url = prefix + `updateUserStatus?userId=${Number(
+      userId)}&enabled=${Boolean(enabled)}`;
+  postRequest(url, {}, callback);
 }
 
 export function register(data) {
@@ -70,14 +72,15 @@ export function register(data) {
       message.error(data.message);
     }
   };
-  const url = `http://localhost:8080/register`;
+  const url = prefix + `register`;
   postRequest(url, data, callback);
 }
 
 export async function registerCheck(username, callback) {
-  const url = `http://localhost:8080/registerCheck?username=${username}`;
+  const url = prefix + `registerCheck?username=${username}`;
   return new Promise(resolve => {
-    postRequest(url, {}, callback)});
+    postRequest(url, {}, callback)
+  });
   //return true;
   // return  request(url);
 }

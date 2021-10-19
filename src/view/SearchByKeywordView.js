@@ -1,7 +1,7 @@
 //全文搜索 20211015
 import React, {useState} from 'react';
 import MyFooter from "../components/footer";
-import {Layout, Input, Button, message} from 'antd';
+import {Layout, Input, Button, message, Divider} from 'antd';
 import {withRouter} from 'react-router-dom';
 import "../css/HomePage.css";
 import '../css/ChatPage.css';
@@ -69,6 +69,9 @@ const SearchByKeywordView = (props) => {
                   >
                     搜索
                   </Button>
+                </div>
+                <div style={{width:'90%',paddingLeft:'10%'}}>
+                  <Divider/>
                 </div>
                 <div className="foot-container" style={{display: "block"}}>
                   <MyFooter/>

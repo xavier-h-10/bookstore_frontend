@@ -1,9 +1,20 @@
 import React, {useState} from 'react';
-import {Form, Input, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete} from 'antd';
-import {register,registerCheck} from "../../service/UserService";
+import {
+  Form,
+  Input,
+  Cascader,
+  Select,
+  Row,
+  Col,
+  Checkbox,
+  Button,
+  AutoComplete
+} from 'antd';
+import {register, registerCheck} from "../../service/UserService";
 import 'antd/dist/antd.css';
 import '../../css/RegisterPage.css'
 import reqwest from 'reqwest';
+import {prefix} from '../../config.js';
 
 const {Option} = Select;
 
@@ -37,12 +48,12 @@ const RegisterForm = () => {
     console.log('Register Failed:', errorInfo);
   };
 
-  const handleSubmit =(values) => {
-    console.log('Register Received values of form:',values);
+  const handleSubmit = (values) => {
+    console.log('Register Received values of form:', values);
     register(values);
   }
 
-  let checkUser=false;
+  let checkUser = false;
   //
   // const handleCheck=(value) => {
   //   console.log("handle check called  "+value);
@@ -76,7 +87,6 @@ const RegisterForm = () => {
   //   // }
   // }
 
-
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
   return (
@@ -99,25 +109,24 @@ const RegisterForm = () => {
                 message: '请输入您的用户名。',
               },
               // {validator: checkAccount}
-              ({getFieldValue})=>({
-                validator(_,value,callback) {
+              ({getFieldValue}) => ({
+                validator(_, value, callback) {
                   console.log("validator called");
-                  if(!value) {
+                  if (!value) {
                     callback("");
                   }
                   reqwest({
-                    url:`http://localhost:8080/registerCheck?username=${value}`,
-                    method:'get',
-                    type:'json',
-                  }).then(data=>{
-                    console.log("get data:"+data);
-                    if(data==false) {
+                    url: prefix + `registerCheck?username=${value}`,
+                    method: 'get',
+                    type: 'json',
+                  }).then(data => {
+                    console.log("get data:" + data);
+                    if (data == false) {
                       console.log("yes called");
                       callback();
-                    }
-                    else {
+                    } else {
                       console.log("reject called");
-                     // return Promise.reject("此用户名已被注册，请更换其他用户名。");
+                      // return Promise.reject("此用户名已被注册，请更换其他用户名。");
                       callback("此用户名已被注册，请更换其他用户名。");
                     }
                   })
@@ -142,7 +151,7 @@ const RegisterForm = () => {
               },
               ({getFieldValue}) => ({
                 validator(_, value) {
-                  if (value.length>=8 || !value) {
+                  if (value.length >= 8 || !value) {
                     return Promise.resolve();
                   }
 
