@@ -121,6 +121,15 @@
   margin-left: 50px;
 }
 
+.search-keyword-author-title {
+  font-family: sans-serif;
+  line-height: 1.15;
+  margin-left: 50px;
+  padding-top: 15px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .search-keyword-button-container {
   width: 50%;
   min-height: 100px;
