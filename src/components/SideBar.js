@@ -31,7 +31,6 @@ class SideBar extends React.Component {
   };
 
   render() {
-    console.log("hello"+this.state.selected);
     return (
         <Sider theme="light" className="sider-container">
           <Menu theme="light" defaultSelectedKeys={[this.state.selected]} mode="inline">

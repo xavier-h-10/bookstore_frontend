@@ -5,51 +5,53 @@ import img from "../../resources/book/book_1.jpg"
 import {ShoppingCartOutlined} from "@ant-design/icons";
 import {getBookById} from "../../service/BookService";
 import {addCartItem} from "../../service/CartService";
+import BookTags from "../SearchPage/BookTags";
 
 export class BookDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
-      detail:null,
-      amount:1,
-      success:false,
+    this.state = {
+      detail: null,
+      amount: 1,
+      success: false,
     }
   }
 
   handleDetail = data => {
     this.setState({
       detail: data,
-        });
+    });
   }
 
   componentDidMount() {
-    getBookById(this.props.bookId,this.handleDetail);
+    getBookById(this.props.bookId, this.handleDetail);
   }
 
   onChange_input = value => {
     console.log("value");
-    this.state.amount=value;
+    this.state.amount = value;
   }
 
   onAddCartItem = (e) => {
     message
-      .loading("加入购物车中...")
-      .then(
-          () => {
-            console.log("addCartItem: "+this.props.bookId+" "+this.state.amount);
-            addCartItem(this.props.bookId,this.state.amount,1);
-          }
-      )
-      .then(
-            ()=> {
-              message.success("加入购物车成功!")
-            });
+    .loading("加入购物车中...")
+    .then(
+        () => {
+          console.log(
+              "addCartItem: " + this.props.bookId + " " + this.state.amount);
+          addCartItem(this.props.bookId, this.state.amount, 1);
+        }
+    )
+    .then(
+        () => {
+          message.success("加入购物车成功!")
+        });
   };
 
-
-render() {
-    if(this.state.detail==null)
+  render() {
+    if (this.state.detail == null) {
       return null;
+    }
     console.log(this.state.detail);
 
     return (
@@ -72,7 +74,8 @@ render() {
                 <Descriptions.Item label={"分      类"}
                                    span={3}>{this.state.detail.type}</Descriptions.Item>
                 <Descriptions.Item className={"price"} label={"价      格"}
-                                   span={3}>{'¥' + this.state.detail.price.toFixed(2)}
+                                   span={3}>{'¥'
+                + this.state.detail.price.toFixed(2)}
                   <div className={"original-price"}>
                     ¥158.00
                   </div>
@@ -85,19 +88,25 @@ render() {
                     : <span className={"status"}>无货</span>}</Descriptions.Item>
                 <Descriptions.Item label={"ISBN"}
                                    span={3}>{this.state.detail.isbn}</Descriptions.Item>
+                <Descriptions.Item label={"标签"}
+                                   span={3}>
+                  <BookTags id={this.state.detail.bookId}/>
+                </Descriptions.Item>
                 <Descriptions.Item label={"作品简介"}
                                    span={3}>{this.state.detail.description}</Descriptions.Item>
                 <Descriptions.Item className={"input-button"}
                                    style={{display: 'block'}}>
                   <div> 数量：</div>
-                  <InputNumber min={1} max={this.state.detail.inventory} defaultValue={1}
+                  <InputNumber min={1} max={this.state.detail.inventory}
+                               defaultValue={1}
                                onChange={this.onChange_input}
                                className={"input-button"}/>
                 </Descriptions.Item>
                 <Descriptions.Item className={"button-groups"}
                                    style={{display: 'block'}}>
                   <Button type="primary" danger icon={<ShoppingCartOutlined/>}
-                          size={"large"} className={"cart-button"} onClick={this.onAddCartItem}>
+                          size={"large"} className={"cart-button"}
+                          onClick={this.onAddCartItem}>
                     加入购物车
                   </Button>
                   {/*<Button danger size={"large"} className={"buy-button"}>*/}

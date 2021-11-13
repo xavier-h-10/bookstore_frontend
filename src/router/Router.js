@@ -19,6 +19,7 @@ import ChatView from "../view/ChatView";
 import ChatRoute from "./ChatRoute";
 import SearchByKeywordView from "../view/SearchByKeywordView";
 import SearchByKeywordResultView from "../view/SearchByKeywordResultView";
+import SearchByTagView from "../view/SearchByTagView";
 
 class BasicRoute extends React.Component {
   constructor(props) {
@@ -51,6 +52,8 @@ class BasicRoute extends React.Component {
                    component={SearchByKeywordView}/>
             <Route exact path="/search_by_keyword_result"
                    component={SearchByKeywordResultView}/>
+            <Route exact path="/search_by_tag"
+                   component={SearchByTagView}/>
             <Redirect from={'/*'} to={{pathname: "/home"}}/>
           </Switch>
         </Router>

@@ -49,3 +49,22 @@ export function findAuthorByBookName(bookName, callback) {
   const url = prefix + `findAuthorByBookName?bookName=${bookName}`;
   postRequest(url, {}, callback);
 }
+
+//搜索全部标签 20211113
+export function getBookTags(callback) {
+  const url = prefix + `getBookTags`;
+  postRequest(url, {}, callback);
+}
+
+//搜索标签相关书籍 20211113
+export function findRelatedBooksByTags(tagId, callback) {
+  const url = prefix + `findRelatedBooksByTag?tagId=${tagId}`;
+  postRequest(url, {}, callback);
+}
+
+//搜索书籍所有的标签 20211113
+export function getBookTagsById(bookId, callback) {
+  const url = prefix + `getBookTagsById?bookId=${bookId}`;
+  postRequest(url, {}, callback);
+}
+

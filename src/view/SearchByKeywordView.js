@@ -8,6 +8,7 @@ import '../css/ChatPage.css';
 import HeadWrap from "../components/HeadWrap";
 import SideBar from "../components/SideBar";
 import {findAuthorByBookName} from "../service/BookService";
+import BookTags from "../components/SearchPage/BookTags";
 
 const {TextArea, Search} = Input;
 
@@ -143,6 +144,21 @@ const SearchByKeywordView = (props) => {
 
                     />
                   </div>
+                </div>
+
+                <div className="search-keyword-author-title"
+                     style={{paddingTop: '2%'}}>
+                  根据标签搜索图书
+                </div>
+                <div>
+                  <BookTags/>
+                </div>
+                <div style={{
+                  width: '90%',
+                  paddingLeft: '10%',
+                  paddingTop: '2%'
+                }}>
+                  <Divider/>
                 </div>
                 <div className="foot-container" style={{display: "block"}}>
                   <MyFooter/>
